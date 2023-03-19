@@ -20,7 +20,6 @@ import java.util.regex.Pattern;
 public class FilterServiceImpl implements FilterService {
 
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
-
     private static final Pattern PATTERN = Pattern.compile("-?\\d+(\\.\\d+)?");
 
     @Override
@@ -49,7 +48,6 @@ public class FilterServiceImpl implements FilterService {
             query += " AND o.order_placed= :orderPlaced";
         }
         return namedParameterJdbcTemplate.query(query, params, getConsumer());
-
     }
 
     private RowMapper<FilterResponse> getConsumer() {
